@@ -2,32 +2,30 @@ const express = require("express");
 
 const app = express();
 
-app.get("/test", (req, res) => {
-  res.send({ fistname: "vasan", lastName: "r" });
+app.post("/test", (req, res, next) => {
+  console.log("hello from test");
+  // res.send("response from test api");
+  next();
 });
-
-app.post("/test", (req, res) => {
-  res.send("database was sucessfully created");
+app.post("/test", (req, res, next) => {
+  console.log("hello from test");
+  // res.send("response from test api");
+  next();
 });
-
-app.delete("/test", (req, res) => {
-  res.send("database deleted sucessfully");
+app.post("/test", (req, res, next) => {
+  console.log("hello from test");
+  // res.send("response from test api");
+  next();
 });
-
-app.patch("/test", (req, res) => {
-  res.send("database updated sucessfully");
+app.post("/test", (req, res, next) => {
+  console.log("hello from test");
+  // res.send("response from test api");
+  next();
 });
-
-app.use("/test", (req, res) => {
-  res.send("hello from test");
-});
-
-app.use("/", function (req, res) {
-  res.send("hello from empty ");
-});
-
-app.use("/hello", function (req, res) {
-  res.send("hello from hello");
+app.post("/test", (req, res, next) => {
+  console.log("hello from test5");
+  res.send("response from test api5");
+  next();
 });
 
 app.listen(3000, () => {
