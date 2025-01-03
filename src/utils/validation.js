@@ -15,4 +15,22 @@ const validationForSignup = (req) => {
   //     throw new Error("password is not strong");
   //   }
 };
-module.exports = { validationForSignup };
+
+const validateEdit = (req) => {
+  const allowedEdit = [
+    "firstName",
+    "lastName",
+    "emailId",
+    "about",
+    "skills",
+    "age",
+    "gender",
+    "photoUrl",
+  ];
+
+  const isValidEdit = Object.keys(req.body).every((keys) =>
+    allowedEdit.includes(keys)
+  );
+  return isValidEdit;
+};
+module.exports = { validationForSignup, validateEdit };

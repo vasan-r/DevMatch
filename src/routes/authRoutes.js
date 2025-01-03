@@ -4,6 +4,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
 const { validationForSignup } = require("../utils/validation");
+
 //  for signup
 authRoutes.post("/signup", async (req, res) => {
   try {
@@ -55,6 +56,14 @@ authRoutes.post("/login", async (req, res) => {
   } catch (err) {
     res.status(500).send("error: " + err.message);
   }
+});
+
+// for logout.
+authRoutes.post("/logout", async (req, res) => {
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+  });
+  res.send("logout sucessfull ..");
 });
 
 module.exports = authRoutes;
