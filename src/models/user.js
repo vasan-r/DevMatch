@@ -70,6 +70,8 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+userSchema.index({ firstName: 1 });
+
 userSchema.methods.getJWT = async function () {
   const user = this;
   const token = await JWT.sign({ _id: user._id }, "devMatch@123", {
