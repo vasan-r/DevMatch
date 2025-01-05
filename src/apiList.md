@@ -14,10 +14,8 @@
 
 ## connectionRequest routes
 
-- post/request/send/interested/:userId
-- post/request/send/ignored/:userId
-- post/request/review/accepted/:reqId
-- post/request/review/rejected/:reqId
+- post/request/send/:status/:userId
+- post/request/review/:status/:reqId
 
 ## user
 
